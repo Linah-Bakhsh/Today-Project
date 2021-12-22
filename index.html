@@ -13,7 +13,7 @@
 
 </head>
 <body>
-  <nav class=" justify-content-center navbar navbar-dark bg-dark text-white p-5 border-bottom border-danger border-4">
+  <nav class=" text-center center justify-content-center bg-dark text-white p-4 border-bottom border-danger border-4">
     <!-- Navbar content -->
 
     <h1 class=" text-danger display-1 bold p1">
@@ -21,27 +21,28 @@
       ▌T<span class="text-light">oday.❞</span> 
       
       </h1>
+
+      <div class="container mt-3 " style="width: 30%; ">
+
+        
+     
+        <form class=" me-2 search " >
+          <div class="input-group ">
+              <input type="text" class="form-control input-sm  search-bar text-light bg-dark"  placeholder="Search for weather.."  aria-label="Recipient's username" aria-describedby="button-addon2">
+              <button class="btn input-sm btn-outline-secondary bg-dark" type="button" id="button-addon2">
+                  <i class="fa fa-cloud-sun white" aria-hidden="true"></i>
+              </button>
+            </div>             
+      </form>
+        
+      </div>
+
       
-      <form class=" me-2 search d-flex">
-        <div class="input-group ">
-            <input type="text" class="form-control search-bar text-light bg-dark" placeholder="Search for weather.."  aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary bg-dark" type="button" id="button-addon2">
-                <i class="fa fa-search white" aria-hidden="true"></i>
-            </button>
-          </div>             
-    </form>
+
+    
   </nav>
  
   
-  <div class=" overlaySeg col-12 border">
-    <div class="row justify-content-center "  id="contentVisi">
-        <h1 class=" align-middle">
-          
-          </h1>
-        <div class="weather loading">
-        </div>
-    </div>
-  </div>
      
   <div class="hwrap"><div class="hmove">
     <div class="hitem ">Today the weather in 
@@ -54,6 +55,15 @@
   </div></div>
 
   
+  <div class=" overlaySeg col-12 border">
+    <div class="row justify-content-center "  id="contentVisi">
+        <h1 class=" align-middle">
+          
+          </h1>
+        <div class="weather loading">
+        </div>
+    </div>
+  </div>
   
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white" >
@@ -109,8 +119,8 @@
           <img src="https://www.macmillandictionary.com/us/external/slideshow/full/Grey_full.png" class="card-img" alt="...">
         </div>
         <div class="col-md-6">
-          <div class="card-body">
-            <h5 class="card-title h2">Card title</h5>
+          <div class="card-body news">
+            <h5 class="card-title h2" >Card title</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <button class="btn btn-dark">show more</button>
 

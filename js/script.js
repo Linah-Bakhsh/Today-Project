@@ -1,4 +1,5 @@
 let weather = {
+  
     apiKey: "240d4193038f427d8e54291c188bfe7c",
     fetchWeather: function (city) {
     fetch(
@@ -54,3 +55,33 @@ let weather = {
     });
 
     weather.fetchWeather("Jeddah");
+
+    let news={
+      
+      fetchnews: function(){
+        fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&api"
+      +"Key=60fdd6588e4747efb7a39a94cbcbeeaa").then((res) => {
+        if (!res.ok) {
+          alert("No news found.");
+          throw new Error("No news found.");
+        }
+        return res.json();
+      })
+      .then(data => obj = data)
+      .then(() => this.mapping(obj))
+    }
+      ,mapping: function (news) {
+        console.log(news.articles);
+        document.getElementById('news').innerHTML = news.map(data => 
+          `
+          
+          `
+          ).join('')
+      }
+    }
+
+    news.fetchnews();
+      
+      
+      
+      
