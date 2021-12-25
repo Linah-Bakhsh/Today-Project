@@ -1,4 +1,4 @@
-# <img src="img/icon.png" width="50px"> Today Project
+# <img src="img/icon.svg" width="50px"> Today Project
 
 
 ## Introduction
