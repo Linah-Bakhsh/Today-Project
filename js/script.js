@@ -1,3 +1,5 @@
+var category;
+
 let weather = {
   
     apiKey: "240d4193038f427d8e54291c188bfe7c",
@@ -57,20 +59,12 @@ let weather = {
     
 // Object for news 
     let news={
-      /*
-       
-      category: "genaral" ,
-      set category(category) {
-        this.category = category;
-      },
-      get category() {
-        return this.category;
-      },*/
+    
 
       // NewsAPI request
       fetchnews: function(page,category){
         fetch("https://newsapi.org/v2/top-headlines?pageSize=6&page="+page+"&country=sa&category="+category+"&api"
-      +"Key=4a8f37a5daff41c0b0ba4c4b8590b84f").then((res) => {
+      +"Key=60fdd6588e4747efb7a39a94cbcbeeaa").then((res) => {
         if (!res.ok) {
           alert("No news found.");
           throw new Error("No news found.");
@@ -84,7 +78,7 @@ let weather = {
       //  API function request for user's search
     },fetchnews_search: function(Keywords){
       fetch("https://newsapi.org/v2/top-headlines?q="+Keywords
-    +"&apiKey=4a8f37a5daff41c0b0ba4c4b8590b84f").then((res) => {
+    +"&apiKey=60fdd6588e4747efb7a39a94cbcbeeaa").then((res) => {
       if (!res.ok) {
         alert("No news found.");
         throw new Error("No news found.");
@@ -102,11 +96,11 @@ let weather = {
 
         console.log(news.articles);
         document.getElementById('title').innerHTML = 
-        '<h1 class="text-danger display-5 title p3 mt-4">_____ <span class="text-dark">❝ </span>'+
-        string.charAt(0).toUpperCase()+'<span class="text-dark">'+string2+' ❞</span>  _________ </h1> ';
+        '<h1 class="text-danger display-5 title p3 mt-4 "> _____ <span class="animate__animated animate__fadeInLeft animate__slow"> <span class="text-dark">❝ </span>'+
+        string.charAt(0).toUpperCase()+'<span class="text-dark">'+string2+' ❞</span></span>    _________ </h1> ';
         document.getElementById('news').innerHTML = news.articles.map(article => 
           `
-          <div class="mt-5">
+          <div class="mt-5 animate__animated animate__fadeInUp animate__slow">
           <div class="row no-gutters py-2 px-5" >
         <div class="col-md-6 " >
           <div class=" overlaySeg col-12 border">
@@ -154,28 +148,34 @@ let weather = {
             news.search();
           }
       });
-      
+
+      // click pagination function 
       $('ul.pagination > li >a').click(function (e) {
         e.preventDefault();
         var page = $(this).text();
         $('ul.pagination > li > a').removeClass(' bg-danger border-danger').addClass('bg-dark');
-        
         $(this).addClass('active bg-danger border-danger').removeClass(' bg-dark');
-        //console.log(news.category);
-        news.fetchnews(page,"General");
+        
+
+        news.fetchnews(page,category);
+        console.log(category);
         window.scrollTo(0, 400);
         
         $('.pagination ').click();
     });
 
+    // click category function 
     $('ul.navbar-nav > li > a').click(function (e) {
       e.preventDefault();
       var getItem = $(this).text();
       $('ul.navbar-nav > li > a').removeClass(' active bg-danger text-light');
       $(this).addClass(' active bg-danger text-light');
-
-      news.fetchnews("1",getItem.replace(/\s/g, ''));
-      console.log(getItem.replace(/\s/g, ''),"1");
+    // set the page one actaive 
+    $('ul.pagination > li > a').removeClass(' bg-danger border-danger').addClass('bg-dark');
+    $('#page1').addClass(' bg-danger border-danger ').removeClass(' bg-dark');
+    category=getItem.replace(/\s/g, '');
+      news.fetchnews("1",category);
+      
       $('.navbar-toggler').click();
   });
 

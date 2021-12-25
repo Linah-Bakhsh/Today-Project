@@ -1,6 +1,9 @@
 
-
+.text-gray{
+  color: rgba(86, 86, 87, 0.062) !important;  
+}
 .white {
+  
     color: white !important;            
     }
     .p1 {
@@ -19,11 +22,13 @@
       }
       #contentVisi {
         background-image: url("http://s3.amazonaws.com/colorcombos-images/users/1/color-schemes/color-scheme-375-main.png?v=20120505082910");
-        background-repeat: repeat;
+        background-repeat: no-repeat;
         background-size: cover;
-        height: 300px;
+        padding: 0px;
+        height: 320px;
         width:100%;
         background-attachment: fixed;
+        
         -webkit-filter: grayscale(100%);
     }
     .overlaySeg {
