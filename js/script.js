@@ -42,7 +42,7 @@ let weather = {
     },
     };
 
-    document.querySelector(".search button").addEventListener("click", function () {
+    document.querySelector(".search-weather button").addEventListener("click", function () {
     weather.search();
     });
 
@@ -54,13 +54,23 @@ let weather = {
         }
     });
 
-    weather.fetchWeather("Jeddah");
-
+    
+// Object for news 
     let news={
-      
-      fetchnews: function(){
-        fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&api"
-      +"Key=60fdd6588e4747efb7a39a94cbcbeeaa").then((res) => {
+      /*
+       
+      category: "genaral" ,
+      set category(category) {
+        this.category = category;
+      },
+      get category() {
+        return this.category;
+      },*/
+
+      // NewsAPI request
+      fetchnews: function(page,category){
+        fetch("https://newsapi.org/v2/top-headlines?pageSize=6&page="+page+"&country=sa&category="+category+"&api"
+      +"Key=4a8f37a5daff41c0b0ba4c4b8590b84f").then((res) => {
         if (!res.ok) {
           alert("No news found.");
           throw new Error("No news found.");
@@ -68,19 +78,111 @@ let weather = {
         return res.json();
       })
       .then(data => obj = data)
-      .then(() => this.mapping(obj))
-    }
-      ,mapping: function (news) {
+      // call maping function to deiplay the JISON information  
+      .then(data  => this.mapping(data,category))
+
+      //  API function request for user's search
+    },fetchnews_search: function(Keywords){
+      fetch("https://newsapi.org/v2/top-headlines?q="+Keywords
+    +"&apiKey=4a8f37a5daff41c0b0ba4c4b8590b84f").then((res) => {
+      if (!res.ok) {
+        alert("No news found.");
+        throw new Error("No news found.");
+      }
+      return res.json();
+    })
+    .then(data => obj = data)
+    .then(data  => this.mapping(data,Keywords))
+  }
+    // mapping function for desplay the news 
+      ,mapping: function (news,title) {
+        var string =title;
+        var string2 = title
+        string2 = string2.substring(1);
+
         console.log(news.articles);
-        document.getElementById('news').innerHTML = news.map(data => 
+        document.getElementById('title').innerHTML = 
+        '<h1 class="text-danger display-5 title p3 mt-4">_____ <span class="text-dark">❝ </span>'+
+        string.charAt(0).toUpperCase()+'<span class="text-dark">'+string2+' ❞</span>  _________ </h1> ';
+        document.getElementById('news').innerHTML = news.articles.map(article => 
           `
+          <div class="mt-5">
+          <div class="row no-gutters py-2 px-5" >
+        <div class="col-md-6 " >
+          <div class=" overlaySeg col-12 border">
+          <div class="row justify-content-center "  id="contentVisi">
+          <img src="${article.urlToImage}" class="card-img " id="contentVisi" alt="...">
+          </div>
+        </div>
+        
+        </div>
+        <div class="col-md-6 border-bottom border-4">
+          <div class="card-body ">
+            <h5 class="card-title p2 h3" >${article.title}</h5>
+            <p class="card-text">
+            ${article.description}
+            </p>
+            <a href="${article.url}" >
+            <button class="btn btn-dark">show more</button>
+            </a>
+         
+          </div>
+          <div class="card-footer">
+          <small class="text-muted">${article.publishedAt}</small>
+          </div>
+        </div>
+        
+      </div>
+      
+      </div>
           
           `
           ).join('')
-      }
-    }
+      },
+    
+      
+    };
 
-    news.fetchnews();
+    document.querySelector(".search-news button").addEventListener("click", function () {
+      news.fetchnews_search(document.querySelector(".bar-news").value);
+      });
+  
+      document
+      .querySelector(".bar-news")
+      .addEventListener("keyup", function (event) {
+          if (event.key == "Enter") {
+            news.search();
+          }
+      });
+      
+      $('ul.pagination > li >a').click(function (e) {
+        e.preventDefault();
+        var page = $(this).text();
+        $('ul.pagination > li > a').removeClass(' bg-danger border-danger').addClass('bg-dark');
+        
+        $(this).addClass('active bg-danger border-danger').removeClass(' bg-dark');
+        //console.log(news.category);
+        news.fetchnews(page,"General");
+        window.scrollTo(0, 400);
+        
+        $('.pagination ').click();
+    });
+
+    $('ul.navbar-nav > li > a').click(function (e) {
+      e.preventDefault();
+      var getItem = $(this).text();
+      $('ul.navbar-nav > li > a').removeClass(' active bg-danger text-light');
+      $(this).addClass(' active bg-danger text-light');
+
+      news.fetchnews("1",getItem.replace(/\s/g, ''));
+      console.log(getItem.replace(/\s/g, ''),"1");
+      $('.navbar-toggler').click();
+  });
+
+    weather.fetchWeather("Jeddah");
+    //news.weather="General"
+    news.fetchnews("1","General");
+
       
       
       

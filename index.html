@@ -16,7 +16,7 @@
   <nav class=" text-center center justify-content-center bg-dark text-white p-4 border-bottom border-danger border-4">
     <!-- Navbar content -->
 
-    <h1 class=" text-danger display-1 bold p1">
+    <h1 class=" text-danger display-2 bold p1">
       
       ▌T<span class="text-light">oday.❞</span> 
       
@@ -26,14 +26,14 @@
 
         
      
-        <form class=" me-2 search " >
-          <div class="input-group ">
+       
+          <div class="input-group me-2 search-weather">
               <input type="text" class="form-control input-sm  search-bar text-light bg-dark"  placeholder="Search for weather.."  aria-label="Recipient's username" aria-describedby="button-addon2">
               <button class="btn input-sm btn-outline-secondary bg-dark" type="button" id="button-addon2">
                   <i class="fa fa-cloud-sun white" aria-hidden="true"></i>
               </button>
             </div>             
-      </form>
+      
         
       </div>
 
@@ -66,56 +66,57 @@
   </div>
   
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white" >
+  <nav class="navbar navbar-toggler navbar-expand-lg navbar-light bg-white" >
     <div class="container-fluid d-flex">
       <a class="navbar-brand d-flex" href="#"></a>
       
       <ul class="navbar-nav me-auto mx-5 mb-lg-0 nav-pills h5 d-flex">
-        <li class="nav-item">
-          <a class="nav-link active bg-danger text-light" aria-current="page" href="#">General</a>
+        
+        <li class="nav-item ">
+          <a class="nav-link active bg-danger text-light" value="general" href="#">General</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">Business</a>
+          <a class="nav-link " value="business" href="#">Business</a>
         </li>
         <li class="nav-item">
               
-          <a class="nav-link text-dark" href="#">Entertaimnt</a>
+          <a class="nav-link " href="#">Entertainment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark">Health</a>
+          <a class="nav-link " href="#" >Health</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark">Science</a>
+          <a class="nav-link " href="#" >Science</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark">Sport</a>
+          <a class="nav-link " href="#" >Sports</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark">Technology</a>
+          <a class="nav-link " href="#" >Technology</a>
         </li>
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
        </ul>
   
-        <form class="d-flex me-2">
-          <div class="input-group ">
-              <input type="text" class="form-control" placeholder="Search for news.."  aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="d-flex me-2">
+          <div class="input-group search-news ">
+              <input type="text" class="form-control bar-news" placeholder="Search for news.."  aria-label="Recipient's username" aria-describedby="button-addon2">
               <button class="btn btn-outline-secondary bg-dark" type="button" id="button-addon2">
                   <i class="fa fa-search white" aria-hidden="true"></i>
               </button>
             </div>             
-      </form>
+      </div>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-5">
-
-    <h1 class="text-danger display-3 p3">
-      _____ <span class="text-dark">❝</span> G<span class="text-dark">eneral ❞</span>  _________ </h1> 
-
-    <div class="card m-3 border-light p1" >
-      <div class="row no-gutters">
-        <div class="col-md-6">
+  <h1 class="text-danger  display-5 p3 mt-4" id="title">
+    _____ <span class="text-dark">❝</span> G<span class="text-dark">eneral ❞</span>  _________ </h1> 
+  <div class="container mt-4">
+    <div id="news">
+    
+    <div class="card m-5 border-light p1" >
+      <div class="row no-gutters" >
+        <div class="col-md-6" >
           <img src="https://www.macmillandictionary.com/us/external/slideshow/full/Grey_full.png" class="card-img" alt="...">
         </div>
         <div class="col-md-6">
@@ -132,8 +133,28 @@
         </div>
       </div>
     </div>
-
     
+    </div>
+    
+    <nav aria-label="...">
+      <ul class="pagination p-5 justify-content-end border-bottom border-danger border-4">
+        <li class="page-item disabled">
+          <span class="page-link bg-dark">Previous</span>
+        </li>
+        <li class="page-item">
+          <a class="page-link bg-danger border-danger text-light" href="#">1</a></li>
+        <li class="page-item">
+          <a class="page-link bg-dark text-light" href="#">2</a></li>
+
+        <li class="page-item">
+          <a class="page-link bg-dark text-light" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link bg-dark text-light" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  
+  
   </div>
 
         <!-- Footer -->
@@ -191,8 +212,8 @@
           <div class="col-md-5 col-12">
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
-              <input type="email" id="form5Example21" class="form-control" />
-              <label class="form-label" for="form5Example21">Email address</label>
+              <input type="email" id="form5Example21" class="form-control" placeholder="Email.." />
+              
             </div>
           </div>
           <!--Grid column-->
@@ -312,9 +333,9 @@
       <!--Grid row-->
     </section>
     <!-- Section: Links -->
+    
   </div>
-  <!-- Grid container -->
-
+  
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:
