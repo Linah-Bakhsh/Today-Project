@@ -1,4 +1,6 @@
-# <img src="img/icon.svg" width="50px"> Today Project
+
+
+# ▌Today.❞ Project
 
 
 ## Introduction
@@ -9,9 +11,15 @@ Today's Project is a website that shows you today's news around the world and ca
 * CSS
 * Vanilla Javascript
 * [Fontawesome](https://fontawesome.com/)
+* [pattern.css](https://bansal.io/pattern-css)
+* [Animate.css](https://animate.style/)
 * [Bootstrap](https://getbootstrap.com/ "Bootstrap")
 * [News API](https://newsapi.org/)
 * [Weather API](https://www.weatherbit.io/api)
+
+## Project Prototype
+- Home Page
+<img src="img/screen1.png">
 
 ## Project Requirements
 - Design Responsive Website by [Bootstrap](https://getbootstrap.com/ "Bootstrap").
