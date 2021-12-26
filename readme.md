@@ -34,3 +34,6 @@ Today's Project is a website that shows you today's news around the world and ca
 ## Future Features:
 - Make the website in a different language and allow the user to select the website language.
 - Adding more filtering options to the site, such as selecting the news' country.
+
+### The Dashboard  Demo 
+You can visit Today website [link here](https://linah-bakhsh.github.io/Today-Project/)
