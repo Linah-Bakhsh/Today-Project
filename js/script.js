@@ -64,7 +64,7 @@ let weather = {
       // NewsAPI request
       fetchnews: function(page,category){
         fetch("https://newsapi.org/v2/top-headlines?pageSize=6&page="+page+"&country=sa&category="+category+"&api"
-      +"Key=60fdd6588e4747efb7a39a94cbcbeeaa").then((res) => {
+      +"Key=4a8f37a5daff41c0b0ba4c4b8590b84f").then((res) => {
         if (!res.ok) {
           alert("No news found.");
           throw new Error("No news found.");
@@ -78,7 +78,7 @@ let weather = {
       //  API function request for user's search
     },fetchnews_search: function(Keywords){
       fetch("https://newsapi.org/v2/top-headlines?q="+Keywords
-    +"&apiKey=60fdd6588e4747efb7a39a94cbcbeeaa").then((res) => {
+    +"&apiKey=4a8f37a5daff41c0b0ba4c4b8590b84f").then((res) => {
       if (!res.ok) {
         alert("No news found.");
         throw new Error("No news found.");
